@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Gallery Header -->
+<section class="bg-dark text-light text-center py-5">
+    <div class="container">
+        <h1 class="display-4">Gallery</h1>
+        <p class="lead">Explore our training sessions, finished products, and events.</p>
+    </div>
+</section>
+
+<!-- Gallery Content -->
+<section class="container my-5">
+    {% for category in categories %}
+    <h3 class="bg-primary text-light p-2 rounded text-center">{{ category.name }}</h3>
+    <div class="row">
+        {% for image in category.galleryimage_set.all %}
+        <div class="col-md-4 my-3">
+            <div class="card">
+                <img src="{{ image.image.url }}" class="card-img-top gallery-img" 
+                     alt="{{ image.description }}" data-bs-toggle="modal" data-bs-target="#imageModal"
+                     data-bs-src="{{ image.image.url }}">
+                <div class="card-body">
+                    <p class="card-text text-center">{{ image.description }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</section>
+
+<!-- Lightbox Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="imageModalLabel">Image Preview</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img id="modalImage" src="" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let galleryImages = document.querySelectorAll(".gallery-img");
+        let modalImage = document.getElementById("modalImage");
+
+        galleryImages.forEach(img => {
+            img.addEventListener("click", function () {
+                modalImage.src = this.dataset.bsSrc;
+            });
+        });
+    });
+</script>
+{% endblock %}

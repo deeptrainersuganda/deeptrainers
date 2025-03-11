@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Contact Header -->
+<section class="bg-dark text-light text-center py-5">
+    <div class="container">
+        <h1 class="display-4">Contact Us</h1>
+        <p class="lead">We are here to help! Get in touch with Deep Trainers Uganda.</p>
+    </div>
+</section>
+
+<!-- Contact Information -->
+<section class="container my-5">
+    <div class="row text-center">
+        <div class="col-md-4">
+            <h4>Our Location</h4>
+            <p>Wakiso main stage before branching off to Wakiso District offices.</p>
+        </div>
+        <div class="col-md-4">
+            <h4>Email</h4>
+            <p>
+                <a href="mailto:deeptrainersuganda@gmail.com">deeptrainersuganda@gmail.com</a>
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h4>Phone</h4>
+            <ul class="list-unstyled">
+                <li><a href="tel:0781121560" class="text-decoration-none">📞 0781121560</a></li>
+                <li><a href="tel:0741998416" class="text-decoration-none">📞 0741998416</a></li>
+                <li><a href="tel:0752175023" class="text-decoration-none">📞 0752175023</a></li>
+                <li><a href="tel:0785727110" class="text-decoration-none">📞 0785727110</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form -->
+<section class="container my-5">
+    <h2 class="text-center">Send Us a Message</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="name" class="form-label">Your Name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Your Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label">Your Message</label>
+            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+</section>
+
+{% endblock %}

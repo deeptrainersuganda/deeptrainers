@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section d-flex align-items-center text-light text-center">
+    <div class="overlay">
+        <div class="container">
+            <h1 class="display-10 fw-bold">Welcome to Deep Trainers Uganda (DTU)</h1>
+            <p class="lead">Equipping the youths with relevant hands on skills for self-reliance and sustainability.</p>
+            <a href="{% url 'skills_trained' %}" class="btn btn-primary btn-lg">Explore Our Training Programs</a>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const images = [
+            "{% static 'images/about.jpg' %}",
+            "{% static 'images/about3.jpg' %}",
+            "{% static 'images/about2.jpg' %}"
+        ];
+        
+        let currentIndex = 0;
+        const heroSection = document.querySelector(".hero-section");
+
+        function changeBackground() {
+            heroSection.style.backgroundImage = `url(${images[currentIndex]})`;
+            currentIndex = (currentIndex + 1) % images.length;
+        }
+
+        // Change background every 4 seconds
+        changeBackground();
+        setInterval(changeBackground, 4000);
+    });
+</script>
+
+<section class="container my-5">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <img src="{% static 'images/about.jpg' %}" alt="About DTU" class="img-fluid rounded">
+        </div>
+        <div class="col-md-6">
+            
+            <p>Deep Trainers Uganda (DTU) is a premier vocational training provider committed to equipping individuals, churches, schools, community based organisations with practical skills and industry-relevant knowledge to excel in their careers. Our hands-on training programs are led by experienced instructors, ensuring learners gain the expertise needed to thrive in their chosen fields.</p>
+            <p>We offer a wide range of training programs in areas such as:</p>
+            <ul>
+                <li>Detergent Production</li>
+                <li>Cosmetology</li>
+                <li>Baking and Pastry Making</li>
+                <li>And more!</li>
+            
+        </div>
+    </div>
+</section>
+
+<!-- Training Programs Section -->
+<section class="container my-5">
+    <div class="row align-items-center mb-5">
+        <!-- Image on the left -->
+        <div class="col-md-4 text-center">
+            <img src="{% static 'images/detergents.jpg' %}" alt="Detergents Training" class="rounded-circle img-fluid training-img">
+        </div>
+        <!-- Text on the right -->
+        <div class="col-md-8">
+            <h3><strong>Learn How to Make High-Quality Detergents</strong></h3>
+            <p>Get hands-on training to create top-notch detergents for business or home use.</p>
+            <a href="{% url 'skills_trained' %}" class="btn btn-dark">Our Services</a>
+        </div>
+    </div>
+
+    <div class="row align-items-center mb-5">
+        <!-- Image on the left -->
+        <div class="col-md-4 text-center">
+            <img src="{% static 'images/bakery.jpg' %}" alt="Bakery Training" class="rounded-circle img-fluid training-img">
+        </div>
+        <!-- Text on the right -->
+        <div class="col-md-8">
+            <h3><strong>Master the Art of Baking & Pastry Making</strong></h3>
+            <p>Learn professional baking techniques to start your successful bakery business.</p>
+            <a href="{% url 'skills_trained' %}" class="btn btn-dark">Skills Offered</a>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section text-light text-center py-5">
+    <div class="container">
+        <h2 class="display-5">Get in Touch</h2>
+        <p class="lead">We’d love to hear from you! Reach out for inquiries or training opportunities.</p>
+
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="contact-box">
+                    <i class="fas fa-map-marker-alt fa-3x mb-3"></i>
+                    <h4>Address</h4>
+                    <p>Wakiso main stage before branching off to Wakiso District offices.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="contact-box">
+                    <i class="fas fa-envelope fa-3x mb-3"></i>
+                    <h4>Email</h4>
+                    <p><a href="mailto:deeptrainersuganda@gmail.com" class="text-light">deeptrainersuganda@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="contact-box">
+                    <i class="fas fa-phone fa-3x mb-3"></i>
+                    <h4>Phone</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="tel:0781121560" class="text-light text-decoration-none">📞 0781121560</a></li>
+                        <li><a href="tel:0741998416" class="text-light text-decoration-none">📞 0741998416</a></li>
+                        <li><a href="tel:0752175023" class="text-light text-decoration-none">📞 0752175023</a></li>
+                        <li><a href="tel:0785727110" class="text-light text-decoration-none">📞 0785727110</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

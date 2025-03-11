@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Header -->
+<section class="bg-dark text-light text-center py-5">
+    <div class="container">
+        <h1 class="display-4">Skills Trained</h1>
+        <p class="lead">Explore the different skills taught at Deep Trainers Uganda.</p>
+    </div>
+</section>
+
+<!-- Search & Filter Controls -->
+<section class="container my-4">
+    <div class="row">
+        <div class="col-md-6">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search for a skill...">
+        </div>
+        <div class="col-md-6">
+            <select id="categoryFilter" class="form-select">
+                <option value="all">All Categories</option>
+                {% for category in categories %}
+                <option value="{{ category.name }}">{{ category.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Grid -->
+<section class="container my-5">
+    {% for category in categories %}
+    <h3 class="bg-primary text-light p-2 rounded text-center">{{ category.name }}</h3> <!-- Centered Title -->
+    <div class="row">
+        {% for skill in category.skill_set.all %}
+
+        <div class="col-md-3 col-sm-6 skill-card" data-category="{{ category.name }}">
+            <div class="card shadow-sm my-2">
+                <div class="card-body text-center">
+                    <h6 class="card-title">{{ skill.name }}</h6>
+                </div>
+            </div>
+        </div>
+        
+        {% endfor %}
+    </div>
+    {% endfor %}
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let searchInput = document.getElementById("searchInput");
+        let categoryFilter = document.getElementById("categoryFilter");
+        let skillCards = document.querySelectorAll(".skill-card");
+
+        // Live Search
+        searchInput.addEventListener("keyup", function () {
+            let searchTerm = searchInput.value.toLowerCase();
+            skillCards.forEach(card => {
+                let skillName = card.querySelector(".card-title").textContent.toLowerCase();
+                card.style.display = skillName.includes(searchTerm) ? "" : "none";
+            });
+        });
+
+        // Category Filter
+        categoryFilter.addEventListener("change", function () {
+            let selectedCategory = categoryFilter.value;
+            skillCards.forEach(card => {
+                card.style.display = (selectedCategory === "all" || card.dataset.category === selectedCategory) ? "" : "none";
+            });
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,162 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+}
+/* Navbar Styling */
+.navbar-dark .navbar-nav .nav-link {
+    color: rgb(32, 211, 16);
+}
+
+.nav-link.active {
+    font-weight: bold;
+    color: #ffcc00 !important; /* Orange color for active link */
+    border-bottom: 2px solid #ffcc00;
+}s
+
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s ease-in-out; /* Smooth transition effect */
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+/* About Section */
+.container.my-5 .row {
+    align-items: center; /* Vertically align items in the row */
+}
+
+
+/* Fix Card Layout */
+.training-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    min-height: 360px; /* Ensures even height */
+}
+
+/* Hover Effect */
+.training-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Fix Image Sizes */
+.training-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%; /* Adds a nice bottom border */
+}
+
+/* Button Styling */
+.training-card .btn {
+    background: #007bff;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.3s;
+    padding: 10px 15px;
+}
+
+.training-card .btn:hover {
+    background: #0056b3;
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    z-index: 1000;
+}
+
+.whatsapp-float img {
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-float:hover {
+    opacity: 0.8;
+}
+
+/* Skills Grid Styling */
+.skill-card .card {
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 5px;
+    font-size: 14px;
+    word-wrap: break-word;
+}
+
+/* Gallery Image Styling */
+.gallery-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 300px;
+    }
+}
+
+/* Contact Section - Blue Theme */
+.contact-section {
+    background: linear-gradient(to right, #0056b3, #007bff); /* Blue gradient */
+    padding: 80px 0;
+    color: white;
+}
+
+/* Contact Boxes */
+.contact-box {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.contact-box:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Icons */
+.contact-box i {
+    color: #ffcc00; /* Yellow to contrast with blue */
+}
+
+/* Links */
+.contact-box a {
+    color: white;
+    font-weight: bold;
+}
+
+.contact-box a:hover {
+    text-decoration: underline;
+    color: #ffcc00;
+}
