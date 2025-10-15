@@ -11,11 +11,11 @@ def gallery(request):
     categories = GalleryCategory.objects.prefetch_related('galleryimage_set').all()
     return render(request, 'core/gallery.html', {'categories': categories})
 
-def home(request):
+def index(request):
     about = About.objects.first()
     contact = Contact.objects.first()
     categories = SkillCategory.objects.all() 
-    return render(request, 'core/home.html', {'about': about, 'categories': categories, 'contact': contact})  # Removed services
+    return render(request, 'core/index.html', {'about': about, 'categories': categories, 'contact': contact})  # Removed services
 
 def about(request):
     about = About.objects.first()
