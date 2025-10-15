@@ -45,7 +45,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="/">Index</a>
+                        <a class="nav-link {% if request.path == '/index' %}active{% endif %}" href="{% url 'index' %}">Index</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == '/gallery/' %}active{% endif %}" href="{% url 'gallery' %}">Gallery</a>
